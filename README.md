@@ -1,6 +1,5 @@
 # Demand Forecast API
 
-## EN
 Backend system written in Python for demand forecasting
 based on historical sales data.
 
