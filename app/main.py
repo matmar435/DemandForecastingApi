@@ -1,10 +1,11 @@
 from fastapi import FastAPI
 
 from app.database import Base, engine
+from app.routers import products, orders
 
 app = FastAPI(title="Demand Forecast API")
 
 Base.metadata.create_all(bind=engine)
-@app.get("/")
-def root():
-    return {"status": "API is running"}
+
+app.include_router(products.router)
+app.include_router(orders.router)

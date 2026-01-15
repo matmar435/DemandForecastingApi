@@ -2,8 +2,9 @@ from sqlalchemy import Column, Integer, String, ForeignKey, Date, Numeric
 from sqlalchemy.orm import relationship
 from app.database import Base
 
+
 class Order(Base):
-    _tablename_ = "orders"
+    __tablename__ = "orders"
 
     id = Column(Integer, primary_key=True)
     product_id = Column(Integer, ForeignKey("products.id"))
