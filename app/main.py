@@ -1,11 +1,10 @@
 from fastapi import FastAPI
 
+from app.database import Base, engine
+
 app = FastAPI(title="Demand Forecast API")
 
-
-@app.get("/health")
-def health_check():
-    """
-    Health check endpoint.
-    """
-    return {"status": "ok"}
+Base.metadata.create_all(bind=engine)
+@app.get("/")
+def root():
+    return {"status": "API is running"}
