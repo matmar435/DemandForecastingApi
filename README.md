@@ -35,7 +35,7 @@ app/
  ├── routers/             # endpointy FastAPI
  ├── services/            # logika serwisów
  │    └── forecast.py     # rolling mean forecast
- └── analytics/           # agregacje i analityka
+ 
 ```
 
 ---
