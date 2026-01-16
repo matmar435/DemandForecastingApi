@@ -2,11 +2,12 @@ import pandas as pd
 from datetime import timedelta
 
 
-def prepare_dataframe(data: list|[dict]):
+def prepare_dataframe(data: list | [dict]):
     df = pd.DataFrame(data)
     df["date"] = pd.to_datetime(df["date"])
     df = df.sort_values("date")
     return df
+
 
 def rolling_mean_forecast(df: pd.DataFrame, days: int = 7):
     df["forecast"] = (
@@ -19,6 +20,6 @@ def rolling_mean_forecast(df: pd.DataFrame, days: int = 7):
     forecast_value = df["forecast"].iloc[-1]
 
     return {
-        "forecast_date": last_date + timedelta(days = 1),
-        "predicted_quantity": round(float(forecast_value),2)
+        "forecast_date": last_date + timedelta(days=1),
+        "predicted_quantity": round(float(forecast_value), 2)
     }

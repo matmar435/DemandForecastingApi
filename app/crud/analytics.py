@@ -21,7 +21,8 @@ def total_quantity_by_product(db: Session):
         for Order.product_id, total_quantity in results
     ]
 
-def daily_demand_by_product(db:Session,product_id:int):
+
+def daily_demand_by_product(db: Session, product_id: int):
     results = (
         db.query(
             Order.order_date,
