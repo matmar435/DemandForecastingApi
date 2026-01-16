@@ -45,7 +45,8 @@ app/
 ### Product
 - `id`
 - `name`
-- `price`
+- `category`
+- `created at`
 
 ### Order
 - `id`
