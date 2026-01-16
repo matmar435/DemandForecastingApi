@@ -21,5 +21,5 @@ def total_quantity(db: Session = Depends(get_db)):
 
 
 @router.get("/daily-demand/{product_id}")
-def daily_demand(product_id: int, db: Session = Depends(get_db())):
+def daily_demand(product_id: int, db: Session = Depends(get_db)):
     return daily_demand_by_product(db, product_id)
