@@ -10,13 +10,15 @@ router = APIRouter(
     tags=["Orders"]
 )
 
+
 @router.get("/", response_model=list[OrderResponse])
 def read_order(db: Session = Depends(get_db)):
     return get_orders(db)
+
 
 @router.post("/", response_model=list[OrderResponse])
 def add_product(
         order: OrderCreate,
         db: Session = Depends(get_db)
 ):
-    return create_order(db,order)
+    return create_order(db, order)

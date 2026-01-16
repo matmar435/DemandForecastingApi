@@ -2,8 +2,10 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from app.crud.analytics import total_quantity_by_product
 from app.database import SesionLocal
+from app.schemas import TotalQuantityResponse
 
 router = APIRouter(prefix="/analytics", tags=["Analytics"])
+
 
 def get_db():
     db = SesionLocal()
@@ -12,6 +14,7 @@ def get_db():
     finally:
         db.close()
 
-@router.get("/total-quantity")
-def total_quantity(db:Session = Depends(get_db)):
+
+@router.get("/total-quantity", response_model=list[TotalQuantityResponse])
+def total_quantity(db: Session = Depends(get_db)):
     return total_quantity_by_product(db)
